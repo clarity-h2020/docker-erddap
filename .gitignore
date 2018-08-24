@@ -1,0 +1,11 @@
+# netbeans
+/nbproject/private/
+/desktop.ini
+/icon.ico
+*.pid
+*.out
+*~
+
+# docker
+#.env
+#!.env.sample

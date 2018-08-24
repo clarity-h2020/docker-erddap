@@ -1,0 +1,34 @@
+version: '3.6'
+
+services:
+  erdapp:
+    container_name: ${COMPOSE_PROJECT_NAME}
+    image: axiom/docker-erddap:latest
+    environment:
+        - TOMCAT_USER_ID={TOMCAT_USER_ID}
+        - TOMCAT_GROUP_ID=${TOMCAT_GROUP_ID}
+    volumes:
+        - type: tmpfs
+          target: /tmp
+        - type: bind
+          source: ./server.xml
+          target: /usr/local/tomcat/conf/server.xml
+        - type: bind
+          source: ./logs
+          target: /usr/local/tomcat/logs/
+        - type: volume
+          source: content
+          target: /usr/local/tomcat/content/erddap 
+        - type: bind
+          source: ./data
+          target: /erddapData
+          
+volumes:          
+  content:
+    name: ${COMPOSE_PROJECT_NAME}_content
+    driver: local
+    
+networks:
+  default:
+    external:
+      name: ${NETWORK:-clarity}
