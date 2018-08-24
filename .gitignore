@@ -9,3 +9,11 @@
 # docker
 #.env
 #!.env.sample
+
+#erdapp
+
+/data
+/logs
+/config
+/import
+

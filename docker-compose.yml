@@ -1,31 +1,51 @@
 version: '3.6'
 
 services:
-  erdapp:
+  erddap:
     container_name: ${COMPOSE_PROJECT_NAME}
     image: axiom/docker-erddap:latest
     environment:
-        - TOMCAT_USER_ID={TOMCAT_USER_ID}
+        - TOMCAT_USER_ID=${TOMCAT_USER_ID}
         - TOMCAT_GROUP_ID=${TOMCAT_GROUP_ID}
+        - VIRTUAL_HOST=${VIRTUAL_HOST}
+        - VIRTUAL_PORT=${VIRTUAL_PORT:-8080}
+        - VIRTUAL_ROOT=/erddap/
+        - VIRTUAL_PATH=/erddap/
+        - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
+        - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
     volumes:
         - type: tmpfs
           target: /tmp
+        - type: tmpfs
+          target: /usr/local/tomcat/temp
+        - type: volume
+          source: webapps
+          target: /usr/local/tomcat/webapps
+        - type: volume
+          source: conf
+          target: /usr/local/tomcat/conf/localhost  
         - type: bind
           source: ./server.xml
           target: /usr/local/tomcat/conf/server.xml
         - type: bind
           source: ./logs
-          target: /usr/local/tomcat/logs/
-        - type: volume
-          source: content
+          target: /usr/local/tomcat/logs
+        - type: bind
+          source: ./config
           target: /usr/local/tomcat/content/erddap 
         - type: bind
           source: ./data
           target: /erddapData
+        - type: bind
+          source: ./import
+          target: /import
           
-volumes:          
-  content:
-    name: ${COMPOSE_PROJECT_NAME}_content
+volumes:
+  conf:
+    name: ${COMPOSE_PROJECT_NAME}_tomcat_conf
+    driver: local
+  webapps:
+    name: ${COMPOSE_PROJECT_NAME}_tomcat_webapps
     driver: local
     
 networks:

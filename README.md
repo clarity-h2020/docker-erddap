@@ -1,3 +1,61 @@
+# CLARITY ERDDAP
+
+Based on [https://github.com/axiom-data-science/docker-erddap](axiom-data-science/docker-erddap) + additional project specific configuration.
+
+## Starting and stopping
+
+**Create ERDDAP Service**
+
+```bash
+cd /docker/300-erddap \
+docker-compose up -d --force-recreate --remove-orphans
+```
+
+**Delete ERDDAP Service**
+```bash
+cd /docker/300-erddap \
+docker-compose down
+```
+**Start ERDDAP Service**
+```bash
+cd /docker/300-erddap \
+docker-compose start
+```
+
+**Start ERDDAP Service**
+```bash
+cd /docker/300-erddap
+docker-compose stop  
+```  
+
+**Check ERDDAP Service Status**
+```bash
+cd /docker/300-erddap 
+docker-compose ps 
+docker-compose logs   
+``` 
+
+## Data Volumes & Backups
+
+See [docker-compose.yml](https://github.com/clarity-h2020/docker-erddap/blob/clarity/docker-compose.yml) for configuration of *host-mounted* volumes. In general, data and configuration will be persisted in `/docker/300-erddap`. Configuration that is not part of this GitHub Repository is included in "[poor man's backups](https://github.com/clarity-h2020/docker-duplicity)" while data is covered in the general server backups (Veeam Backup & Replication).
+
+## Running ERRDAP CLI Tools 
+
+```bash
+$ docker run --rm -it \
+  -v $(pwd)/logs:/erddapData/logs \
+  axiom/docker-erddap:latest \
+  bash -c "cd webapps/erddap/WEB-INF/ && bash GenerateDatasetsXml.sh -verbose"
+```
+
+or sh into the running container with
+
+```bash
+docker exec -it --user ${tomcat_uid_from} erddap bash
+cd webapps/erddap/WEB-INF/
+./GenerateDatasetsXml.sh -verbose
+```
+
 # ERDDAP on Docker
 
 A feature full Tomcat (SSL over APR, etc.) running [ERDDAP](http://coastwatch.pfeg.noaa.gov/erddap/index.html)
