@@ -78,43 +78,11 @@ will cause a matching local sourceUrl (such as http://192.168.31.18/thredds/dods
 into a public sourceUrl (http://oceanwatch.pfeg.noaa.gov/thredds/dodsC/satellite/BA/ssta/5day). 
 -->
 
-	<!--
- DISCLAIMER:
-   The chunk of datasets.xml made by GenerageDatasetsXml isn't perfect.
-   YOU MUST READ AND EDIT THE XML BEFORE USING IT IN A PUBLIC ERDDAP.
-   GenerateDatasetsXml relies on a lot of rules-of-thumb which aren't always
-   correct.  *YOU* ARE RESPONSIBLE FOR ENSURING THE CORRECTNESS OF THE XML
-   THAT YOU ADD TO ERDDAP'S datasets.xml FILE.
-
- DIRECTIONS:
- * Read about this type of dataset in
-   https://coastwatch.pfeg.noaa.gov/erddap/download/setupDatasetsXml.html .
- * Read https://coastwatch.pfeg.noaa.gov/erddap/download/setupDatasetsXml.html#addAttributes
-   so that you understand about sourceAttributes and addAttributes.
- * Note: Global sourceAttributes and variable sourceAttributes are listed
-   below as comments, for informational purposes only.
-   ERDDAP combines sourceAttributes and addAttributes (which have
-   precedence) to make the combinedAttributes that are shown to the user.
-   (And other attributes are automatically added to longitude, latitude,
-   altitude, depth, and time variables).
- * If you don't like a sourceAttribute, overwrite it by adding an
-   addAttribute with the same name but a different value
-   (or no value, if you want to remove it).
- * All of the addAttributes are computer-generated suggestions. Edit them!
-   If you don't like an addAttribute, change it.
- * If you want to add other addAttributes, add them.
- * If you want to change a destinationName, change it.
-   But don't change sourceNames.
- * You can change the order of the dataVariables or remove any of them.
-!!! The source for RCP26_fdad_5ed8_ea58 has nGridVariables=5,
-but this dataset will only serve 1 because the others use different dimensions.
--->
-
-<dataset type="EDDGridFromNcFiles" datasetID="RCP26_fdad_5ed8_ea58" active="true">
+<dataset type="EDDGridFromNcFiles" datasetID="extremelyhotdays_RCP26_grid" active="true">
     <reloadEveryNMinutes>1</reloadEveryNMinutes>
     <updateEveryNMillis>10000</updateEveryNMillis>
     <fileDir>/import/EURO-CORDEX/HazardMaps/RCP26/</fileDir>
-    <fileNameRegex>.*\.nc</fileNameRegex>
+    <fileNameRegex>20110101-20401231_extremelyhotdays_hazardmap_diff\.nc</fileNameRegex>
     <recursive>true</recursive>
     <pathRegex>.*</pathRegex>
     <metadataFrom>last</metadataFrom>
@@ -127,7 +95,7 @@ but this dataset will only serve 1 because the others use different dimensions.
         <att name="contact">rossby.cordex@smhi.se</att>
         <att name="Conventions">CF-1.4</att>
         <att name="CORDEX_domain">EUR-11</att>
-        <att name="creation_date">2013-07-03-T22:34:18Z</att>
+        <att name="creation_date">2013-07-03-T21:43:11Z</att>
         <att name="driving_experiment">ICHEC-EC-EARTH, rcp26, r12i1p1</att>
         <att name="driving_experiment_name">rcp26</att>
         <att name="driving_model_ensemble_member">r12i1p1</att>
@@ -146,7 +114,7 @@ but this dataset will only serve 1 because the others use different dimensions.
         <att name="rossby_comment">201147: CORDEX Europe 0.11 deg | RCA4 v1 | ICHEC-EC-EARTH | r12i1p1 | rcp26 | L40</att>
         <att name="rossby_grib_path">/nobackup/rossby16/rossby/joint_exp/cordex/201147/raw/</att>
         <att name="rossby_run_id">201147</att>
-        <att name="tracking_id">82b06d1d-d5bc-4f1f-a95e-4784c6ef4d5e</att>
+        <att name="tracking_id">d414de6f-ca32-479c-a339-a869206ff3fb</att>
     </sourceAttributes -->
     <addAttributes>
         <att name="cdm_data_type">Grid</att>
@@ -156,7 +124,7 @@ but this dataset will only serve 1 because the others use different dimensions.
         <att name="creator_type">person</att>
         <att name="creator_url">http://www.smhi.se/en/Research/Research-departments/climate-research-rossby-centre</att>
         <att name="infoUrl">http://www.smhi.se/en/Research/Research-departments/climate-research-rossby-centre</att>
-        <att name="keywords">1971-2000, 30-year, above, celsius, centre, daily, data, day, days, degrees, equal, hazard, high, hydrological, increase, index, institute, local, low, maximum, medium, meteorological, number, per, percent, period, relative, rossby, source, statistics, summer, summer_days_index_per_time_period, swedish, temperature, time, where, year</att>
+        <att name="keywords">1971-2000, 30-year, above, celsius, centre, daily, data, day, days, degrees, equal, extremely, extremely_hot_days_index_per_time_period, hazard, high, hot, hydrological, increase, index, institute, local, low, maximum, medium, meteorological, number, per, percent, period, relative, rossby, source, statistics, swedish, temperature, time, where, year</att>
         <att name="license">[standard]</att>
         <att name="standard_name_vocabulary">CF Standard Name Table v29</att>
         <att name="summary">Swedish Meteorological and Hydrological Institute, Rossby Centre data from a local source.</att>
@@ -179,52 +147,389 @@ but this dataset will only serve 1 because the others use different dimensions.
         </addAttributes>
     </axisVariable>
     <axisVariable>
-        <sourceName>lat</sourceName>
+        <sourceName>y</sourceName>
         <destinationName>latitude</destinationName>
         <!-- sourceAttributes>
         </sourceAttributes -->
         <addAttributes>
             <att name="ioos_category">Location</att>
             <att name="long_name">Latitude</att>
-            <att name="source_name">lat</att>
+            <att name="source_name">y</att>
             <att name="standard_name">latitude</att>
             <att name="units">degrees_north</att>
         </addAttributes>
     </axisVariable>
     <axisVariable>
-        <sourceName>lon</sourceName>
+        <sourceName>x</sourceName>
         <destinationName>longitude</destinationName>
         <!-- sourceAttributes>
         </sourceAttributes -->
         <addAttributes>
             <att name="ioos_category">Location</att>
             <att name="long_name">Longitude</att>
-            <att name="source_name">long</att>
+            <att name="source_name">x</att>
             <att name="standard_name">longitude</att>
             <att name="units">degrees_east</att>
         </addAttributes>
     </axisVariable>
     <dataVariable>
-        <sourceName>summer_days_index_per_time_period</sourceName>
-        <destinationName>summer_days_index_per_time_period</destinationName>
+        <sourceName>extremely_hot_days_index_per_time_period</sourceName>
+        <destinationName>extremely_hot_days_index_per_time_period</destinationName>
         <dataType>float</dataType>
         <!-- sourceAttributes>
             <att name="_FillValue" type="float">1.0E20</att>
             <att name="cell_methods">time: maximum</att>
             <att name="coordinates">lon lat</att>
-            <att name="long_name">Summer days hazard relative to the 30-year time period 1971-2000. Low: increase &lt; 50&#37;. Medium: 50&#37; &lt;= increase &lt; 100&#37;. High: increase &gt;= 100&#37;. Summer days index is the number of days where the maximum daily temperature is equal to or above 25 degrees Celsius.</att>
-            <att name="standard_name">summer_days_index_per_time_period</att>
+            <att name="long_name">Extremely hot days hazard relative to the 30-year time period 1971-2000. Low: increase &lt; 50&#37;. Medium: 50&#37; &lt;= increase &lt; 100&#37;. High: increase &gt;= 100&#37;. Extremely hot days index is the number of days where the maximum daily temperature is equal to or above 35 degrees Celsius.</att>
+            <att name="standard_name">extremely_hot_days_index_per_time_period</att>
             <att name="units">Hazard category (1=low, 2=medium, 3=high)</att>
         </sourceAttributes -->
         <addAttributes>
-            <att name="colorBarMaximum" type="double">3.0</att>
-            <att name="colorBarMinimum" type="double">1.0</att>
-            <att name="coordinates">lon lat</att>
+            <att name="colorBarMaximum" type="double">3</att>
+            <att name="colorBarMinimum" type="double">1</att>
+            <att name="coordinates">null</att>
             <att name="ioos_category">Statistics</att>
-			<att name="units">Hazard category (1=low, 2=medium, 3=high)</att>
         </addAttributes>
     </dataVariable>
 </dataset>
+
+
+<dataset type="EDDTableFromNcFiles" datasetID="extremelyhotdays_RCP26_table" active="true">
+    <reloadEveryNMinutes>1</reloadEveryNMinutes>
+    <updateEveryNMillis>10000</updateEveryNMillis>
+    <fileDir>/import/EURO-CORDEX/HazardMaps/RCP26/</fileDir>
+    <fileNameRegex>20110101-20401231_extremelyhotdays_hazardmap_diff\.nc</fileNameRegex>
+    <recursive>true</recursive>
+    <pathRegex>.*</pathRegex>
+    <metadataFrom>last</metadataFrom>
+    <preExtractRegex></preExtractRegex>
+    <postExtractRegex></postExtractRegex>
+    <extractRegex></extractRegex>
+    <columnNameForExtract></columnNameForExtract>
+    <sortedColumnSourceName>time</sortedColumnSourceName>
+    <sortFilesBySourceNames>time</sortFilesBySourceNames>
+    <fileTableInMemory>false</fileTableInMemory>
+    <accessibleViaFiles>false</accessibleViaFiles>
+    <!-- sourceAttributes>
+        <att name="CDI">Climate Data Interface version 1.5.2 (http://code.zmaw.de/projects/cdi)</att>
+        <att name="CDO">Climate Data Operators version 1.5.2 (http://code.zmaw.de/projects/cdo)</att>
+        <att name="contact">rossby.cordex@smhi.se</att>
+        <att name="Conventions">CF-1.4</att>
+        <att name="CORDEX_domain">EUR-11</att>
+        <att name="creation_date">2013-07-03-T21:43:11Z</att>
+        <att name="driving_experiment">ICHEC-EC-EARTH, rcp26, r12i1p1</att>
+        <att name="driving_experiment_name">rcp26</att>
+        <att name="driving_model_ensemble_member">r12i1p1</att>
+        <att name="driving_model_id">ICHEC-EC-EARTH</att>
+        <att name="experiment">RCP2.6</att>
+        <att name="experiment_id">rcp26</att>
+        <att name="frequency">day</att>
+        <att name="institute_id">SMHI</att>
+        <att name="institution">Swedish Meteorological and Hydrological Institute, Rossby Centre</att>
+        <att name="model_id">SMHI-RCA4</att>
+        <att name="nco_openmp_thread_number" type="int">1</att>
+        <att name="product">output</att>
+        <att name="project_id">CORDEX</att>
+        <att name="rcm_version_id">v1</att>
+        <att name="references">http://www.smhi.se/en/Research/Research-departments/climate-research-rossby-centre</att>
+        <att name="rossby_comment">201147: CORDEX Europe 0.11 deg | RCA4 v1 | ICHEC-EC-EARTH | r12i1p1 | rcp26 | L40</att>
+        <att name="rossby_grib_path">/nobackup/rossby16/rossby/joint_exp/cordex/201147/raw/</att>
+        <att name="rossby_run_id">201147</att>
+        <att name="tracking_id">d414de6f-ca32-479c-a339-a869206ff3fb</att>
+    </sourceAttributes -->
+    <!-- Please specify the actual cdm_data_type (TimeSeries?) and related info below, for example...
+        <att name="cdm_timeseries_variables">station, longitude, latitude</att>
+        <att name="subsetVariables">station, longitude, latitude</att>
+    -->
+    <addAttributes>
+        <att name="cdm_data_type">Point</att>
+        <att name="Conventions">CF-1.6, COARDS, ACDD-1.3</att>
+        <att name="creator_email">rossby.cordex@smhi.se</att>
+        <att name="creator_name">Rossby Cordex</att>
+        <att name="creator_type">person</att>
+        <att name="creator_url">http://www.smhi.se/en/Research/Research-departments/climate-research-rossby-centre</att>
+        <att name="infoUrl">http://www.smhi.se/en/Research/Research-departments/climate-research-rossby-centre</att>
+        <att name="keywords">1971-2000, 30-year, above, celsius, centre, daily, data, day, days, degrees, equal, extremely, extremely_hot_days_index_per_time_period, hazard, high, hot, hydrological, increase, index, institute, latitude, local, longitude, low, maximum, medium, meteorological, number, per, percent, period, relative, rossby, source, statistics, swedish, temperature, time, where, year</att>
+        <att name="license">[standard]</att>
+        <att name="sourceUrl">(local files)</att>
+        <att name="standard_name_vocabulary">CF Standard Name Table v29</att>
+        <att name="subsetVariables">time</att>
+        <att name="summary">Swedish Meteorological and Hydrological Institute, Rossby Centre data from a local source.</att>
+        <att name="title">Swedish Meteorological and Hydrological Institute, Rossby Centre data from a local source.</att>
+    </addAttributes>
+    <dataVariable>
+        <sourceName>time</sourceName>
+        <destinationName>time</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="bounds">time_bnds</att>
+            <att name="calendar">standard</att>
+            <att name="standard_name">time</att>
+            <att name="units">days since 1949-12-01 00:00:00</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="bounds">null</att>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Time</att>
+            <att name="units">days since 1949-12-01T00:00:00Z</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>y</sourceName>
+        <destinationName>latitude</destinationName>
+        <dataType>short</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">90.0</att>
+            <att name="colorBarMinimum" type="double">-90.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Latitude</att>
+            <att name="source_name">y</att>
+            <att name="standard_name">latitude</att>
+            <att name="units">degrees_north</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>x</sourceName>
+        <destinationName>longitude</destinationName>
+        <dataType>short</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">180.0</att>
+            <att name="colorBarMinimum" type="double">-180.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Longitude</att>
+            <att name="source_name">x</att>
+            <att name="standard_name">longitude</att>
+            <att name="units">degrees_east</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>extremely_hot_days_index_per_time_period</sourceName>
+        <destinationName>extremely_hot_days_index_per_time_period</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E20</att>
+            <att name="cell_methods">time: maximum</att>
+            <att name="coordinates">lon lat</att>
+            <att name="long_name">Extremely hot days hazard relative to the 30-year time period 1971-2000. Low: increase &lt; 50&#37;. Medium: 50&#37; &lt;= increase &lt; 100&#37;. High: increase &gt;= 100&#37;. Extremely hot days index is the number of days where the maximum daily temperature is equal to or above 35 degrees Celsius.</att>
+            <att name="standard_name">extremely_hot_days_index_per_time_period</att>
+            <att name="units">Hazard category (1=low, 2=medium, 3=high)</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">100.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="coordinates">null</att>
+            <att name="ioos_category">Statistics</att>
+        </addAttributes>
+    </dataVariable>
+</dataset>
+
+
+<dataset type="EDDGridFromNcFiles" datasetID="MUKLIMO_3_grid" active="true">
+    <reloadEveryNMinutes>1</reloadEveryNMinutes>
+    <updateEveryNMillis>10000</updateEveryNMillis>
+    <fileDir>/import/MUKLIMO_3/</fileDir>
+    <fileNameRegex>.*\.nc</fileNameRegex>
+    <recursive>true</recursive>
+    <pathRegex>.*</pathRegex>
+    <metadataFrom>last</metadataFrom>
+    <matchAxisNDigits>20</matchAxisNDigits>
+    <fileTableInMemory>false</fileTableInMemory>
+    <accessibleViaFiles>false</accessibleViaFiles>
+    <!-- sourceAttributes>
+    </sourceAttributes -->
+    <addAttributes>
+        <att name="cdm_data_type">Grid</att>
+        <att name="Conventions">COARDS, CF-1.6, ACDD-1.3</att>
+        <att name="infoUrl">???</att>
+        <att name="institution">???</att>
+        <att name="keywords">anzahl, data, der, icount__ST_txt, local, sommertage, source</att>
+        <att name="license">[standard]</att>
+        <att name="standard_name_vocabulary">CF Standard Name Table v29</att>
+        <att name="summary">Data from a local source.</att>
+        <att name="title">Data from a local source.</att>
+    </addAttributes>
+    <axisVariable>
+        <sourceName>T</sourceName>
+        <destinationName>T</destinationName>
+        <!-- sourceAttributes>
+            <att name="units">hours</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">T</att>
+        </addAttributes>
+    </axisVariable>
+	<axisVariable>
+        <sourceName>time</sourceName>
+        <destinationName>time</destinationName>
+        <!-- sourceAttributes>
+            <att name="bounds">time_bnds</att>
+            <att name="calendar">standard</att>
+            <att name="standard_name">time</att>
+            <att name="units">days since 1949-12-01 00:00:00</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="bounds">null</att>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Time</att>
+            <att name="units">days since 1949-12-01T00:00:00Z</att>
+        </addAttributes>
+    </axisVariable>
+    <axisVariable>
+        <sourceName>Z</sourceName>
+        <destinationName>Z</destinationName>
+        <!-- sourceAttributes>
+            <att name="units">m</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Z</att>
+        </addAttributes>
+    </axisVariable>
+	<axisVariable>
+        <sourceName>Y</sourceName>
+        <destinationName>latitude</destinationName>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+			<att name="geospatial_bounds_crs">EPSG:3035</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Latitude</att>
+            <att name="source_name">Y</att>
+            <att name="standard_name">latitude</att>
+            <att name="units">degrees_north</att>
+        </addAttributes>
+    </axisVariable>
+    <axisVariable>
+        <sourceName>X</sourceName>
+        <destinationName>longitude</destinationName>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+		    <att name="geospatial_bounds_crs">EPSG:3035</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Longitude</att>
+            <att name="source_name">X</att>
+            <att name="standard_name">longitude</att>
+            <att name="units">degrees_east</att>
+        </addAttributes>
+    </axisVariable>
+    <dataVariable>
+        <sourceName>icount__ST_txt</sourceName>
+        <destinationName>icount_ST_txt</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="long_name">Anzahl der Sommertage</att>
+            <att name="units">per annum</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+        </addAttributes>
+    </dataVariable>
+</dataset>
+
+
+<dataset type="EDDTableFromNcFiles" datasetID="MUKLIMO_3_table" active="true">
+    <reloadEveryNMinutes>1</reloadEveryNMinutes>
+    <updateEveryNMillis>10000</updateEveryNMillis>
+    <fileDir>/import/MUKLIMO_3/</fileDir>
+    <fileNameRegex>.*\.nc</fileNameRegex>
+    <recursive>true</recursive>
+    <pathRegex>.*</pathRegex>
+    <metadataFrom>last</metadataFrom>
+    <preExtractRegex></preExtractRegex>
+    <postExtractRegex></postExtractRegex>
+    <extractRegex></extractRegex>
+    <columnNameForExtract></columnNameForExtract>
+    <sortedColumnSourceName></sortedColumnSourceName>
+    <sortFilesBySourceNames></sortFilesBySourceNames>
+    <fileTableInMemory>false</fileTableInMemory>
+    <accessibleViaFiles>false</accessibleViaFiles>
+    <!-- sourceAttributes>
+    </sourceAttributes -->
+    <!-- Please specify the actual cdm_data_type (TimeSeries?) and related info below, for example...
+        <att name="cdm_timeseries_variables">station, longitude, latitude</att>
+        <att name="subsetVariables">station, longitude, latitude</att>
+    -->
+    <addAttributes>
+        <att name="cdm_data_type">Other</att>
+        <att name="Conventions">COARDS, CF-1.6, ACDD-1.3</att>
+        <att name="infoUrl">???</att>
+        <att name="institution">???</att>
+        <att name="keywords">data, icount_ST_txt, local, source, time</att>
+        <att name="license">[standard]</att>
+        <att name="sourceUrl">(local files)</att>
+        <att name="standard_name_vocabulary">CF Standard Name Table v29</att>
+        <att name="subsetVariables">T, Z</att>
+        <att name="summary">Data from a local source.</att>
+        <att name="title">Data from a local source.</att>
+    </addAttributes>
+    <dataVariable>
+        <sourceName>T</sourceName>
+        <destinationName>T</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="units">hours</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">T</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Z</sourceName>
+        <destinationName>Z</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="units">m</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Z</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Y</sourceName>
+        <destinationName>Y</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="units">m</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Y</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>X</sourceName>
+        <destinationName>X</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="units">m</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">X</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>icount__ST_txt</sourceName>
+        <destinationName>icount_ST_txt</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="long_name">Anzahl der Sommertage</att>
+            <att name="units">per annum</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+        </addAttributes>
+    </dataVariable>
+</dataset>
+
 
 
 
