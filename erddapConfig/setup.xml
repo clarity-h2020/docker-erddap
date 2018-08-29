@@ -11,7 +11,7 @@ Diagnostic messages are displayed on some HTML pages if displayDiagnosticInfo (a
 Diagnostic messages are always written to the [bigParentDirectory]log.txt file (see below).
 At ERD, we set this to 'all' for development and 'info' for releases.
 -->
-<logLevel>info</logLevel>
+<logLevel>all</logLevel>
 
 <!-- warName becomes part of the public url, after baseUrl/.
 This should always be 'erddap'.
@@ -50,8 +50,8 @@ You MUST CHANGE these to the appropriate browser administrator for your site.
 Whether or not you set up the email system, all potential email messages
 are logged to an emailLogYEAR-MONTH.txt file in the bigParentDirectory.
 -->
-<emailEverythingTo>nobody@example.com</emailEverythingTo>
-<emailDailyReportsTo>nobody@example.com</emailDailyReportsTo>
+<emailEverythingTo>pascal@cismet.de</emailEverythingTo>
+<emailDailyReportsTo>pascal@cismet.de</emailDailyReportsTo>
 
 <!-- This lets you specify a regular expression which determines which datasetIDs
 in the datasets.xml file should be loaded.
@@ -168,7 +168,7 @@ and you are using anti-virus software (e.g., McAfee) make sure McAfee
 Anti Virus Standard Protections :
 Prevent mass mailing worms from sending mail" is un-checked.
 -->
-<emailFromAddress>nothing@example.com</emailFromAddress>
+<emailFromAddress>info@myclimateservice.eu</emailFromAddress>
 <emailUserName></emailUserName>
 <emailPassword></emailPassword>
 <emailProperties></emailProperties>
@@ -189,7 +189,7 @@ You MUST CHANGE these to describe your installation.
 <adminStateOrProvince>SL</adminStateOrProvince>
 <adminPostalCode>0000000</adminPostalCode>
 <adminCountry>Europe</adminCountry>
-<adminEmail>nobody@example.com</adminEmail>
+<adminEmail>info@myclimateservice.eu</adminEmail>
 
 <!--
 These default accessConstraints, fees, and keywords are used by
@@ -242,7 +242,7 @@ The default for wmsActive is "true".
 <wmsSampleVariable>sst</wmsSampleVariable>
 <!-- The bounding box values are minLongitude,minLatitude,maxLongitude,maxLatitude.
    Longitude values within -180 to 180, or 0 to 360, are now okay. -->
-<wmsSampleBBox>0,-75,360,75</wmsSampleBBox>
+<wmsSampleBBox>0,-180,360,180</wmsSampleBBox>
 
 <!-- ERDDAP has a service that lets remote users set a flag
 to notify ERDDAP to try to reload a dataset.
@@ -269,7 +269,7 @@ Note that if you change this and restart ERDDAP, the list of subscriptions
 (in [bigParentDirectory]/subscriptionsV1.txt) isn't affected.
 See also the subscriptionEmailBlacklist in datasets.xml.
 -->
-<subscriptionSystemActive>true</subscriptionSystemActive>
+<subscriptionSystemActive>false</subscriptionSystemActive>
 
 <!-- ERDDAP has converters for time, keywords, units, FIPS codes, etc.
 ([domain]/erddap/convert/index.html).

@@ -9,8 +9,6 @@ services:
         - TOMCAT_GROUP_ID=${TOMCAT_GROUP_ID}
         - VIRTUAL_HOST=${VIRTUAL_HOST}
         - VIRTUAL_PORT=${VIRTUAL_PORT:-8080}
-        - VIRTUAL_ROOT=/erddap/
-        - VIRTUAL_PATH=/erddap/
         - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
         - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
     volumes:
@@ -22,8 +20,8 @@ services:
           source: webapps
           target: /usr/local/tomcat/webapps
         - type: volume
-          source: conf
-          target: /usr/local/tomcat/conf/localhost  
+          source: catalina
+          target: /usr/local/tomcat/conf/Catalina/localhost
         - type: bind
           source: ./server.xml
           target: /usr/local/tomcat/conf/server.xml
@@ -31,18 +29,18 @@ services:
           source: ./logs
           target: /usr/local/tomcat/logs
         - type: bind
-          source: ./config
+          source: ./erddapConfig
           target: /usr/local/tomcat/content/erddap 
         - type: bind
-          source: ./data
+          source: ./erddapData
           target: /erddapData
         - type: bind
-          source: ./import
+          source: /data
           target: /import
           
 volumes:
-  conf:
-    name: ${COMPOSE_PROJECT_NAME}_tomcat_conf
+  catalina:
+    name: ${COMPOSE_PROJECT_NAME}_tomcat_catalina
     driver: local
   webapps:
     name: ${COMPOSE_PROJECT_NAME}_tomcat_webapps

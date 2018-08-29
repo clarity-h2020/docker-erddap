@@ -179,27 +179,27 @@ but this dataset will only serve 1 because the others use different dimensions.
         </addAttributes>
     </axisVariable>
     <axisVariable>
-        <sourceName>y</sourceName>
+        <sourceName>lat</sourceName>
         <destinationName>latitude</destinationName>
         <!-- sourceAttributes>
         </sourceAttributes -->
         <addAttributes>
             <att name="ioos_category">Location</att>
             <att name="long_name">Latitude</att>
-            <att name="source_name">y</att>
+            <att name="source_name">lat</att>
             <att name="standard_name">latitude</att>
             <att name="units">degrees_north</att>
         </addAttributes>
     </axisVariable>
     <axisVariable>
-        <sourceName>x</sourceName>
+        <sourceName>lon</sourceName>
         <destinationName>longitude</destinationName>
         <!-- sourceAttributes>
         </sourceAttributes -->
         <addAttributes>
             <att name="ioos_category">Location</att>
             <att name="long_name">Longitude</att>
-            <att name="source_name">x</att>
+            <att name="source_name">long</att>
             <att name="standard_name">longitude</att>
             <att name="units">degrees_east</att>
         </addAttributes>
@@ -217,10 +217,11 @@ but this dataset will only serve 1 because the others use different dimensions.
             <att name="units">Hazard category (1=low, 2=medium, 3=high)</att>
         </sourceAttributes -->
         <addAttributes>
-            <att name="colorBarMaximum" type="double">100.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            <att name="coordinates">null</att>
+            <att name="colorBarMaximum" type="double">3.0</att>
+            <att name="colorBarMinimum" type="double">1.0</att>
+            <att name="coordinates">lon lat</att>
             <att name="ioos_category">Statistics</att>
+			<att name="units">Hazard category (1=low, 2=medium, 3=high)</att>
         </addAttributes>
     </dataVariable>
 </dataset>
