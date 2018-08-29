@@ -45,14 +45,14 @@ See [docker-compose.yml](https://github.com/clarity-h2020/docker-erddap/blob/cla
 $ docker run --rm -it \
   -v $(pwd)/logs:/erddapData/logs \
   axiom/docker-erddap:latest \
-  bash -c "cd webapps/erddap/WEB-INF/ && bash GenerateDatasetsXml.sh -verbose"
+  bash -c "cd /usr/local/tomcat/webapps/erddap/WEB-INF/ && bash GenerateDatasetsXml.sh -verbose"
 ```
 
 or sh into the running container with
 
 ```bash
 docker exec -it --user ${tomcat_uid_from} erddap bash
-cd webapps/erddap/WEB-INF/
+cd /usr/local/tomcat/webapps/erddap/WEB-INF/
 ./GenerateDatasetsXml.sh -verbose
 ```
 

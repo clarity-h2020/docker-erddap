@@ -111,9 +111,9 @@ but this dataset will only serve 1 because the others use different dimensions.
 -->
 
 <dataset type="EDDGridFromNcFiles" datasetID="RCP26_fdad_5ed8_ea58" active="true">
-    <reloadEveryNMinutes>10080</reloadEveryNMinutes>
+    <reloadEveryNMinutes>1</reloadEveryNMinutes>
     <updateEveryNMillis>10000</updateEveryNMillis>
-    <fileDir>/import/HazardMaps/RCP26/</fileDir>
+    <fileDir>/import/EURO-CORDEX/HazardMaps/RCP26/</fileDir>
     <fileNameRegex>.*\.nc</fileNameRegex>
     <recursive>true</recursive>
     <pathRegex>.*</pathRegex>

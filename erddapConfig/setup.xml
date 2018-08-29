@@ -11,7 +11,7 @@ Diagnostic messages are displayed on some HTML pages if displayDiagnosticInfo (a
 Diagnostic messages are always written to the [bigParentDirectory]log.txt file (see below).
 At ERD, we set this to 'all' for development and 'info' for releases.
 -->
-<logLevel>all</logLevel>
+<logLevel>info</logLevel>
 
 <!-- warName becomes part of the public url, after baseUrl/.
 This should always be 'erddap'.
@@ -254,7 +254,7 @@ But if you you think someone is abusing the flag system,
 change this text again, restart ERDDAP, and send
 all of the users of the flag system the relevant new flagKeys
 (see the list in the Daily Report). -->
-<flagKeyKey>beip2eisahJo0Aimai3quoh1evoh1uuy1ahsoocahbai9quu7goh7jeath9aiphu</flagKeyKey>
+<flagKeyKey>flagKey</flagKeyKey>
 
 <!-- ERDDAP has an email/URL subscription system which sends a user an email
 or pings a url whenever an interesting dataset changes.
@@ -316,7 +316,7 @@ it will increase the frequency that ERDDAP retries datasets that aren't
 loading. If there are lots of such datasets and they are retested frequently,
 the data source might consider it pestering/aggressive behaviour.
 -->
-<loadDatasetsMinMinutes>15</loadDatasetsMinMinutes>
+<loadDatasetsMinMinutes>1</loadDatasetsMinMinutes>
 
 <!-- This specifies the most minutes that reloading datasets is allowed to take
 (before the loadDatasets thread treated as "stalled" and is interrupted).
